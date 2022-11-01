@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 2 Arrays</title>
+</head>
+
+<body>
+
+<h2>Ejercicio sencillo 2: Concatenar 2 Arrays</h2>
+<p>Introduce los primeros enteros separados por comas:</p>
+<input type="text" id="texto1" placeholder="Introduce los elementos del primer array" style="width: 50%;">
+<button id="ejemplo1">Ejemplo 1</button>
+<br> <br>
+<p>Introduce los segundos enteros separados por comas:</p>
+<input type="text" id="texto2" placeholder="Introduce los elementos del segundo array" style="width: 50%;">
+<button id="ejemplo2"> Ejemplo 2</button>
+<br> <br>
+<button id="concatenar">Concatenar</button>
+<button id="reiniciar">Reiniciar</button>
+<p id="resultado"></p>
+
+<script type="text/javascript">
+
+//EVENTOS
+document.getElementById("ejemplo1").addEventListener("click" , () => {
+    ejemplo1();
+})
+document.getElementById("ejemplo2").addEventListener("click", () => {
+    ejemplo2();
+})
+document.getElementById("reiniciar").addEventListener("click" , () => {
+    reiniciar();
+})
+document.getElementById("concatenar").addEventListener("click" , () => {
+    concatenar();
+})
+
+//FUNCIONES
+function ejemplo1(){
+    document.getElementById("texto1").value = "14,56,78,23"
+}
+
+function ejemplo2(){
+    document.getElementById("texto2").value = "56,78,34,93"
+}
+function reiniciar(){
+    document.getElementById("texto1").value = "";
+    document.getElementById("texto2").value = "";
+    document.getElementById("resultado").innerHTML = "";
+}
+
+function concatenar(){
+    const primer_array = document.getElementById("texto1").value.split(",");
+    const segundo_array = document.getElementById("texto2").value.split(",");
+    const union = [...primer_array , ...segundo_array];
+    
+    let resultado = document.getElementById("resultado").innerHTML = union;
+}
+     
+</script>
+
+</body>
+</html>
