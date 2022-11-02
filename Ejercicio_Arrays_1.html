@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio arrays</title>
+</head>
+<body>
+    <h1>Ejercicio Sencillo Arrays. Mayor, Menor y Media</h1>
+    <p>Introduce los enteros separados por comas</p>
+    <input id="texto" type="text">
+    <button id="ejemplo">Cargar ejemplo</button>
+    <br> <br>
+    <button id="calculo">Calcular</button>
+    <button id="reinicio">reiniciar</button>
+    <p id="suma"></p>
+    <p id="media"></p>
+    <p id="mayor"></p>
+    <p id="menor"></p>
+
+
+    <script type="text/javascript">
+    
+    //EVENTOS    
+
+        document.getElementById("ejemplo").addEventListener("click", () => {
+            ejemplo();
+        })
+        document.getElementById("reinicio").addEventListener("click", () => {
+            reinicio();
+        })
+        document.getElementById("calculo").addEventListener("click" , () => {
+            calculo();
+        })
+
+    //FUNCIONES
+
+    //Función la cual muestra un ejemplo en el cuadro de texto
+    function ejemplo(){
+        document.getElementById("texto").value = "63,45,58,56";
+    }
+
+    //Función la cual limpia el cuadro de texto
+    function reinicio(){
+        document.getElementById("texto").value = "";
+    }
+
+    //Función la cual hace todos los calculos
+    function calculo(){
+
+    //Calculo de la suma
+
+    let almacenador = 0;
+    const elementos_array = document.getElementById("texto").value.split(",");
+
+    for(let contador of elementos_array){
+        almacenador = almacenador + parseInt(contador);
+    }
+
+    document.getElementById("suma").innerHTML = "La suma es: " + almacenador;
+
+    //calculo media
+
+    const numero_elementos = elementos_array.length;
+    let media = almacenador / numero_elementos;
+    document.getElementById("media").innerHTML = "La media es: " + media;
+
+    //Numero mayor del array
+
+    const mayor = Math.max(...elementos_array);
+
+    document.getElementById("mayor").innerHTML = ("El mayor es: " + mayor);
+
+    //Numero menor de un array
+
+    const menor = Math.min(...elementos_array);
+    document.getElementById("menor").innerHTML = "El numero menor es: " + menor;
+    }
+
+
+    </script>
+</body>
+</html>
